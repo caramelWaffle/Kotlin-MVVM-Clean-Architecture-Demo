@@ -1,0 +1,35 @@
+package com.example.kotlin_mvvm_clean_architecture_demo.presentation.di.core
+
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.ArtistRepository
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.MovieRepository
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.TVShowRepository
+import com.example.kotlin_mvvm_clean_architecture_demo.domain.usecase.ArtistUseCase
+import com.example.kotlin_mvvm_clean_architecture_demo.domain.usecase.MovieUseCase
+import com.example.kotlin_mvvm_clean_architecture_demo.domain.usecase.TVShowUseCase
+import dagger.Module
+import dagger.Provides
+import javax.inject.Singleton
+
+@Module
+class UseCaseModule {
+
+    @Singleton
+    @Provides
+    fun provideMovieUseCase(movieRepository: MovieRepository): MovieUseCase{
+        return MovieUseCase(movieRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideArtistUseCase(artistRepository: ArtistRepository): ArtistUseCase{
+        return ArtistUseCase(artistRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideTVShowUseCase(tvShowRepository: TVShowRepository): TVShowUseCase{
+        return TVShowUseCase(tvShowRepository)
+    }
+
+
+}

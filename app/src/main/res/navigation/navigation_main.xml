@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.kotlin_mvvm_clean_architecture_demo.presentation.view.fragment.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_movieFragment"
+            app:destination="@id/movieFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_TVShowFragment"
+            app:destination="@id/TVShowFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_artistFragment"
+            app:destination="@id/artistFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieFragment"
+        android:name="com.example.kotlin_mvvm_clean_architecture_demo.presentation.view.fragment.MovieFragment"
+        android:label="fragment_movie"
+        tools:layout="@layout/fragment_movie" />
+    <fragment
+        android:id="@+id/TVShowFragment"
+        android:name="com.example.kotlin_mvvm_clean_architecture_demo.presentation.view.fragment.TVShowFragment"
+        android:label="fragment_t_v_show"
+        tools:layout="@layout/fragment_t_v_show" />
+    <fragment
+        android:id="@+id/artistFragment"
+        android:name="com.example.kotlin_mvvm_clean_architecture_demo.presentation.view.fragment.ArtistFragment"
+        android:label="fragment_artist"
+        tools:layout="@layout/fragment_artist" />
+</navigation>

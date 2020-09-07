@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Kotlin-MVVM-Clean-Architecture-Demo</string>
+    <string name="TMDB_API_KEY">0ee024a1abb59d09999850210c15495f</string>
+    <string name="base_url">https://api.themoviedb.org/3/</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
