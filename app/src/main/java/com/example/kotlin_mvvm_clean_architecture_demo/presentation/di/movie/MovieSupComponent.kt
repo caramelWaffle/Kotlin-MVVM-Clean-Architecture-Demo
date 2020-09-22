@@ -1,5 +1,6 @@
 package com.example.kotlin_mvvm_clean_architecture_demo.presentation.di.movie
 
+import com.example.kotlin_mvvm_clean_architecture_demo.presentation.view.fragment.ArtistFragment
 import com.example.kotlin_mvvm_clean_architecture_demo.presentation.view.fragment.MovieFragment
 import dagger.Subcomponent
 

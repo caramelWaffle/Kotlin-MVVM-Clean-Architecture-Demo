@@ -1,4 +1,4 @@
-package com.example.kotlin_mvvm_clean_architecture_demo.data.repository.artist
+package com.example.kotlin_mvvm_clean_architecture_demo.data.repository.artist.datasource.impl
 
 import com.example.kotlin_mvvm_clean_architecture_demo.data.db.ArtistDAO
 import com.example.kotlin_mvvm_clean_architecture_demo.data.model.artist.Artist

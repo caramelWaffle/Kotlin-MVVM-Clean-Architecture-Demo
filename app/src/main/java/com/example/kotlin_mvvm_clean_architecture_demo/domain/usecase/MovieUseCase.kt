@@ -3,7 +3,7 @@ package com.example.kotlin_mvvm_clean_architecture_demo.domain.usecase
 import androidx.lifecycle.LiveData
 import androidx.paging.PagedList
 import com.example.kotlin_mvvm_clean_architecture_demo.data.model.movie.Movie
-import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.MovieRepository
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie.MovieRepository
 
 class MovieUseCase(private val movieRepository: MovieRepository) {
     // execute function

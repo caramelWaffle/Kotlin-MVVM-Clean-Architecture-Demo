@@ -5,57 +5,82 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlin_mvvm_clean_architecture_demo.R
+import com.example.kotlin_mvvm_clean_architecture_demo.databinding.FragmentArtistBinding
+import com.example.kotlin_mvvm_clean_architecture_demo.databinding.FragmentTVShowBinding
+import com.example.kotlin_mvvm_clean_architecture_demo.presentation.di.AppInjector
+import com.example.kotlin_mvvm_clean_architecture_demo.presentation.view.adapter.ArtistAdapter
+import com.example.kotlin_mvvm_clean_architecture_demo.presentation.view.adapter.TVShowAdapter
+import com.example.kotlin_mvvm_clean_architecture_demo.presentation.viewmodel.artist.ArtistViewModel
+import com.example.kotlin_mvvm_clean_architecture_demo.presentation.viewmodel.tvshow.TVShowViewModel
+import com.example.kotlin_mvvm_clean_architecture_demo.presentation.viewmodel.tvshow.TVShowViewModelFactory
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TVShowFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TVShowFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    @Inject
+    lateinit var viewModelfactory: TVShowViewModelFactory
+    private lateinit var binding: FragmentTVShowBinding
+    private lateinit var viewModel: TVShowViewModel
+    private lateinit var tvShowAdapter: TVShowAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+        setHasOptionsMenu(true)
+
+        AppInjector.getInstance(requireActivity().applicationContext)
+            .createTVShowSubComponent()
+            .inject(this)
+        super.onCreate(savedInstanceState)    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_t_v_show, container, false)
+        binding = FragmentTVShowBinding.inflate(inflater, container, false)
+        initialize()
+        return binding.root
+    }
+
+    private fun initialize() {
+        binding.lifecycleOwner = this
+        viewModel = ViewModelProvider(this, viewModelfactory).get(TVShowViewModel::class.java)
+        tvShowAdapter = TVShowAdapter()
+        binding.tvRecyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            this.adapter = tvShowAdapter
+        }
+        fetchPopularArtist()
+    }
+
+
+    private fun fetchPopularArtist() {
+        CoroutineScope(Dispatchers.Main).launch {
+            viewModel.getTVShow().observe(viewLifecycleOwner, Observer {
+                if (it != null) {
+                    tvShowAdapter.setData(it)
+                    binding.tvProgressBar.visibility = View.GONE
+                } else {
+                    binding.tvProgressBar.visibility = View.GONE
+                    Toast.makeText(
+                        requireActivity().applicationContext,
+                        "No data available",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            })
+        }
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TVShowFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             TVShowFragment()
-                .apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }

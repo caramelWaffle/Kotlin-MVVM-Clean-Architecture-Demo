@@ -1,4 +1,4 @@
-package com.example.kotlin_mvvm_clean_architecture_demo.presentation.viewmodel
+package com.example.kotlin_mvvm_clean_architecture_demo.presentation.viewmodel.movie
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.*

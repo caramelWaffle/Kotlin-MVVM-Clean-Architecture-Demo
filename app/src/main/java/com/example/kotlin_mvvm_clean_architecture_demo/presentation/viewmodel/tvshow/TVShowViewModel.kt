@@ -1,4 +1,4 @@
-package com.example.kotlin_mvvm_clean_architecture_demo.presentation.viewmodel
+package com.example.kotlin_mvvm_clean_architecture_demo.presentation.viewmodel.tvshow
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
@@ -6,11 +6,11 @@ import com.example.kotlin_mvvm_clean_architecture_demo.domain.usecase.TVShowUseC
 
 class TVShowViewModel(private val tvShowUseCase: TVShowUseCase): ViewModel() {
 
-    fun getMovies() = liveData {
+    fun getTVShow() = liveData {
         emit(tvShowUseCase.getTVShows())
     }
 
-    fun updateMovies() = liveData {
+    fun updateTVShow() = liveData {
         emit(tvShowUseCase.updateTVShows())
     }
 

@@ -1,7 +1,7 @@
 package com.example.kotlin_mvvm_clean_architecture_demo.domain.usecase
 
 import com.example.kotlin_mvvm_clean_architecture_demo.data.model.artist.Artist
-import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.ArtistRepository
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.artist.ArtistRepository
 
 
 class ArtistUseCase(private val artistRepository: ArtistRepository) {

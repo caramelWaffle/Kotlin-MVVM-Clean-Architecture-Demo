@@ -5,7 +5,6 @@ import com.example.kotlin_mvvm_clean_architecture_demo.data.model.artist.Artist
 import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.artist.datasource.ArtistCacheDataSource
 import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.artist.datasource.ArtistLocalDataSource
 import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.artist.datasource.ArtistRemoteDataSource
-import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.ArtistRepository
 
 
 class ArtistRepositoryImp(

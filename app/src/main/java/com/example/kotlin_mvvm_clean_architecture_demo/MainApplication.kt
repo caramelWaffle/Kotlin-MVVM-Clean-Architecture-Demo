@@ -8,6 +8,7 @@ class MainApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         AppInjector.getInstance(applicationContext).initDagger()
+        Contextor.setContext(applicationContext)
     }
 
 }

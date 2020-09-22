@@ -8,15 +8,14 @@ import com.example.kotlin_mvvm_clean_architecture_demo.data.model.movie.Movie
 import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie.datasource.MovieCacheDataSource
 import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie.datasource.MovieLocalDataSource
 import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie.datasource.MovieRemoteDataSource
-import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.MovieRepository
-import kotlinx.coroutines.runBlocking
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie.datasource.impl.MovieRemoteDataSourceFactory
 
 class MovieRepositoryImp(
     private val movieRemoteDataSource: MovieRemoteDataSource,
     private val movieLocalDataSource: MovieLocalDataSource,
     private val movieCacheDataSource: MovieCacheDataSource,
     private val movieRemoteDataSourceFactory: MovieRemoteDataSourceFactory
-) : MovieRepository{
+) : MovieRepository {
 
 
 

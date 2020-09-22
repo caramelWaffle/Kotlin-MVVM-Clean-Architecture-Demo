@@ -1,4 +1,4 @@
-package com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie
+package com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie.datasource.impl
 
 import com.example.kotlin_mvvm_clean_architecture_demo.data.db.MovieDAO
 import com.example.kotlin_mvvm_clean_architecture_demo.data.model.movie.Movie

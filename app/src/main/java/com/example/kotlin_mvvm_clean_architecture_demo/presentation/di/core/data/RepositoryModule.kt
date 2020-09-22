@@ -11,11 +11,11 @@ import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie.dat
 import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow.datasource.TVShowCacheDataSource
 import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow.datasource.TVShowLocalDataSource
 import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow.datasource.TVShowRemoteDataSource
-import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow.datasource.TVShowRepositoryImp
-import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.ArtistRepository
-import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.MovieRepository
-import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.TVShowRepository
-import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie.MovieRemoteDataSourceFactory
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow.TVShowRepositoryImp
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.artist.ArtistRepository
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie.MovieRepository
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow.TVShowRepository
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie.datasource.impl.MovieRemoteDataSourceFactory
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -47,6 +47,11 @@ class RepositoryModule {
         tvShowRemoteDataSource: TVShowRemoteDataSource,
         tvShowLocalDataSource: TVShowLocalDataSource,
         tvShowCacheDataSource: TVShowCacheDataSource
-    ): TVShowRepository = TVShowRepositoryImp(tvShowRemoteDataSource, tvShowLocalDataSource, tvShowCacheDataSource)
+    ): TVShowRepository =
+        TVShowRepositoryImp(
+            tvShowRemoteDataSource,
+            tvShowLocalDataSource,
+            tvShowCacheDataSource
+        )
 
 }

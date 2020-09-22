@@ -1,8 +1,10 @@
-package com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow.datasource
+package com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow
 
 import android.util.Log
 import com.example.kotlin_mvvm_clean_architecture_demo.data.model.tvshow.TVShow
-import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.TVShowRepository
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow.datasource.TVShowCacheDataSource
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow.datasource.TVShowLocalDataSource
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow.datasource.TVShowRemoteDataSource
 
 
 class TVShowRepositoryImp(

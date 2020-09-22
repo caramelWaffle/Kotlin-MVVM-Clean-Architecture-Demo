@@ -5,7 +5,7 @@
         android:id="@+id/action_update"
         android:orderInCategory="100"
         android:icon="@drawable/ic_baseline_update_48"
-        android:title="Update"
+        android:title="@string/update"
         app:showAsAction="always"
         />
 

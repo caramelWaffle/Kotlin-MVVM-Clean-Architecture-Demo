@@ -8,6 +8,7 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.kotlin_mvvm_clean_architecture_demo.R
 import com.example.kotlin_mvvm_clean_architecture_demo.data.model.movie.Movie
 import com.example.kotlin_mvvm_clean_architecture_demo.databinding.ItemMovieBinding
 
@@ -42,9 +43,10 @@ class MovieAdapter : PagedListAdapter<Movie, MovieAdapter.MyViewHolder>(Movie.di
         fun bindView(movie: Movie, position: Int){
             binding.titleTextView.text = movie.title
             binding.descriptionTextView.text = movie.overview
-            val posterURL = "https://image.tmdb.org/t/p/w500"+movie.posterPath
+            val posterURL = Contextor.getContext().getString(R.string.image_endpoint)+movie.posterPath
             Glide.with(binding.imageView.context)
                 .load(posterURL)
+                .placeholder(R.drawable.placeholder)
                 .into(binding.imageView)
         }
     }

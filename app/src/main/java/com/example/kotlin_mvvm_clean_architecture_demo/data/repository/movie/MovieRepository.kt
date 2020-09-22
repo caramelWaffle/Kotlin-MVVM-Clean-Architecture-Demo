@@ -1,4 +1,4 @@
-package com.example.kotlin_mvvm_clean_architecture_demo.data.repository
+package com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie
 
 import androidx.lifecycle.LiveData
 import androidx.paging.PagedList

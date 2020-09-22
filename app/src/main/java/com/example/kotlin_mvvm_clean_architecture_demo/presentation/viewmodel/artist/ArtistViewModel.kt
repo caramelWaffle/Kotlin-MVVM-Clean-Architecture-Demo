@@ -1,4 +1,4 @@
-package com.example.kotlin_mvvm_clean_architecture_demo.presentation.viewmodel
+package com.example.kotlin_mvvm_clean_architecture_demo.presentation.viewmodel.artist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
@@ -6,11 +6,11 @@ import com.example.kotlin_mvvm_clean_architecture_demo.domain.usecase.ArtistUseC
 
 class ArtistViewModel(private val useCase: ArtistUseCase): ViewModel() {
 
-    fun getMovies() = liveData {
+    fun getArtist() = liveData {
         emit(useCase.getArtists())
     }
 
-    fun updateMovies() = liveData {
+    fun updateArtist() = liveData {
         emit(useCase.updateArtists())
     }
 

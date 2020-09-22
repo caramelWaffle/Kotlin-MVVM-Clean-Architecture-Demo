@@ -1,4 +1,4 @@
-package com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow
+package com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow.datasource.Impl
 
 
 import com.example.kotlin_mvvm_clean_architecture_demo.data.db.TVShowDAO

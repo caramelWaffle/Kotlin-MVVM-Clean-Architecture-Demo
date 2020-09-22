@@ -30,5 +30,4 @@ interface TMDBService {
     suspend fun getPopularArtists(
         @Query("api_key")
         APIKey: String): Response<ArtistList>
-
 }

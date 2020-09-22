@@ -1,4 +1,4 @@
-package com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie
+package com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie.datasource.impl
 
 import androidx.paging.PageKeyedDataSource
 import com.example.kotlin_mvvm_clean_architecture_demo.data.api.TMDBService
@@ -9,9 +9,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import retrofit2.HttpException
 import retrofit2.Response
-import java.io.IOException
 
 private const val TMDB_STARTING_PAGE_INDEX = 1
 
@@ -28,7 +26,9 @@ class MovieRemoteDataSourceImp(private val tmdbService: TMDBService, private val
     ) {
         CoroutineScope(Dispatchers.IO).launch {
             val response = async(Dispatchers.IO){
-                tmdbService.getPopularMoviesWithPaging(API_KEY, TMDB_STARTING_PAGE_INDEX)
+                tmdbService.getPopularMoviesWithPaging(API_KEY,
+                    TMDB_STARTING_PAGE_INDEX
+                )
             }
             val movies = async(Dispatchers.IO){
                 response.await().body()!!.movies

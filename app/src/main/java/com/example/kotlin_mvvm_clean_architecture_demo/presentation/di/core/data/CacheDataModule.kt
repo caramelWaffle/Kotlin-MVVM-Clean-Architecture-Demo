@@ -1,10 +1,10 @@
 package com.example.kotlin_mvvm_clean_architecture_demo.presentation.di.core.data
 
-import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.artist.ArtistCacheDataSourceImpl
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.artist.datasource.impl.ArtistCacheDataSourceImpl
 import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.artist.datasource.ArtistCacheDataSource
-import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie.MovieCacheDataSourceImpl
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie.datasource.impl.MovieCacheDataSourceImpl
 import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.movie.datasource.MovieCacheDataSource
-import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow.TvShowCacheDataSourceImpl
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow.datasource.Impl.TvShowCacheDataSourceImpl
 import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow.datasource.TVShowCacheDataSource
 import dagger.Module
 import dagger.Provides

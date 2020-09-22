@@ -1,7 +1,7 @@
 package com.example.kotlin_mvvm_clean_architecture_demo.domain.usecase
 
 import com.example.kotlin_mvvm_clean_architecture_demo.data.model.tvshow.TVShow
-import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.TVShowRepository
+import com.example.kotlin_mvvm_clean_architecture_demo.data.repository.tvshow.TVShowRepository
 
 
 class TVShowUseCase(private val tvShowRepository: TVShowRepository) {
